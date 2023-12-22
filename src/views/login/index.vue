@@ -46,6 +46,8 @@
     </div>
 </template>
 <script>
+import http from '@/plugins/http';
+
 export default {
     data() {
         return {
@@ -59,6 +61,16 @@ export default {
             isHidePassword: true,
             errorMessage: '用户名或密码错误，请重新登录'
         };
+    },
+    methods: {
+        onLogin() {
+            console.log(this.loginForm);
+            http({
+                url: '/api/login',
+                method: 'post',
+                data: this.loginForm
+            });
+        }
     }
 };
 </script>

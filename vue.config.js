@@ -17,6 +17,12 @@ module.exports = defineConfig({
     devServer: {
         port: 8888,
         hot: true,
-        compress: true
+        compress: true,
+        proxy: {
+            '/api': {
+                target: 'http://127.0.0.1:7777',
+                changeOrigin: true
+            }
+        }
     }
 });
